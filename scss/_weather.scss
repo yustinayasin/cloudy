@@ -1,0 +1,92 @@
+.weather {
+    width: 300px;
+    margin: 50px 0 50px 0;
+    box-shadow: 0px -6px 20px rgba($color: #caeafd, $alpha: 1.0), 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 50px 30px;
+    @include flex-display();
+
+    .main-icon {
+        width: 200px;
+        height: 200px;
+        margin: 30px 0;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        text-decoration: underline;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .description {
+        text-align: center;
+
+        h4 {
+            font-size: 1.1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        h5 {
+            font-size: 0.9rem;
+        }
+    }
+
+    .details {
+        margin: 70px 0 30px 0;
+        width: 100%;
+
+        h5 {
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-areas: 'temperature visibilit' 'pressure uv' 'humidity wind';
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            gap: 30px 10px;
+
+            ul:first-child {
+                grid-area: temperature;
+            }
+
+            ul:nth-child(2) {
+                grid-area: visibiliti;
+            }
+
+            ul:nth-child(3) {
+                grid-area: pressure;
+            }
+
+            ul:nth-child(4) {
+                grid-area: uv;
+            }
+
+            ul:nth-child(5) {
+                grid-area: humidity;
+            }
+
+            ul:last-child {
+                grid-area: wind;
+            }
+
+            li {
+                .value {
+                    font-size: 1.3rem;
+                    margin-bottom: 5px;
+                }
+
+                .keterangan {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}

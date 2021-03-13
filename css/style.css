@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  background-color: #8BBBD9;
+  padding: 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+nav .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav .logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+nav .logo span {
+  font-size: 2rem;
+}
+
+nav .btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #8BBBD9;
+  -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-box-shadow: 0px -6px 10px #caeafd, 0px 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px -6px 10px #caeafd, 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+nav .btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+nav .btn:active {
+  -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+nav .btn:active:after {
+  -webkit-box-shadow: inset 0px -2px 3px #caeafd, inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: inset 0px -2px 3px #caeafd, inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+nav .btn.active .fas.fa-times {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+nav .btn.active .fas.fa-bars {
+  opacity: 0;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+}
+
+nav .btn .fas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+nav .btn .fas.fa-times {
+  opacity: 0;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+}
+
+nav .btn .fa-bars::before, nav .btn .fa-times::before {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.weather {
+  width: 300px;
+  margin: 50px 0 50px 0;
+  -webkit-box-shadow: 0px -6px 20px #caeafd, 0px 4px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px -6px 20px #caeafd, 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.weather .main-icon {
+  width: 200px;
+  height: 200px;
+  margin: 30px 0;
+}
+
+.weather h3 {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.weather .description {
+  text-align: center;
+}
+
+.weather .description h4 {
+  font-size: 1.1rem;
+}
+
+.weather .description h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.weather .description h5 {
+  font-size: 0.9rem;
+}
+
+.weather .details {
+  margin: 70px 0 30px 0;
+  width: 100%;
+}
+
+.weather .details h5 {
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+.weather .details ul {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'temperature visibilit' 'pressure uv' 'humidity wind';
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  gap: 30px 10px;
+}
+
+.weather .details ul ul:first-child {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: temperature;
+}
+
+.weather .details ul ul:nth-child(2) {
+  grid-area: visibiliti;
+}
+
+.weather .details ul ul:nth-child(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: pressure;
+}
+
+.weather .details ul ul:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: uv;
+}
+
+.weather .details ul ul:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: humidity;
+}
+
+.weather .details ul ul:last-child {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: wind;
+}
+
+.weather .details ul li .value {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.weather .details ul li .keterangan {
+  font-size: 0.9rem;
+}
+
+.forecast {
+  width: 300px;
+  margin: 50px 0 100px 0;
+  -webkit-box-shadow: 0px -6px 20px #caeafd, 0px 4px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px -6px 20px #caeafd, 0px 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 50px 10px 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.forecast h3 {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.forecast h4 {
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: left;
+  margin: 60px 0 0 0;
+}
+
+.forecast ul {
+  list-style: none;
+  width: 100%;
+}
+
+.forecast ul li {
+  margin: 40px 0;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'date icon celcius button';
+  gap: 0 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forecast ul li span {
+  font-size: 0.9rem;
+}
+
+.forecast ul li img {
+  width: 25px;
+  height: 25px;
+}
+
+.forecast ul li button {
+  position: relative;
+  width: 110px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  background-color: #8BBBD9;
+  -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-box-shadow: 0px -6px 10px #caeafd, 0px 4px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px -6px 10px #caeafd, 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.forecast ul li button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.forecast ul li button:active {
+  -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+.forecast ul li button:active:after {
+  -webkit-box-shadow: inset 0px -2px 2px #caeafd, inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: inset 0px -2px 2px #caeafd, inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+/*# sourceMappingURL=style.css.map */

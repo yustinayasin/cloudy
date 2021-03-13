@@ -1,0 +1,18 @@
+@import 'mixins';
+@import 'variable';
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    background-color: $background-body;
+    padding: 50px 30px;
+    @include flex-display();
+    color: white;
+}

@@ -1,0 +1,95 @@
+@import 'mixins';
+@import 'variable';
+
+nav {
+    @include flex-display(space-between, center, row);
+    width: 100%;
+
+    .logo {
+        @include flex-display(center, center, row);
+
+        img {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+
+        span {
+            font-size: 2rem;
+        }
+    }
+
+    .btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: $background-body;
+        transition:
+            // cubic bezier dalam waktu dikit progres banyak, dalam waktu dikit progress banyak jadi bakal ada bouncing
+            all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0px -6px 10px rgba($color: #caeafd, $alpha: 1.0), 0px 4px 15px rgba(0, 0, 0, 0.2);
+
+        &:after {
+			// buttons pseudo element
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+        }
+
+        &:active {
+			box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+
+			&:after {
+                box-shadow: 
+                    inset 0px -2px 3px rgba($color: #caeafd, $alpha: 1.0),
+					inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+			}
+        }
+
+        &.active {
+            .fas {
+                &.fa-times {
+                    //ditampilin icon pausenya
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+                &.fa-bars {
+                    //hide icon play
+                    opacity: 0;
+                    //kenapa yang play juga ditranslate padahal opacity udah 0?
+                    //biar ada efek bounce bergerak dari bawah ke atas
+                    transform: translate(-50%, 50%);
+                }
+		    }
+        }
+
+		.fas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            vertical-align: middle;
+            transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            &.fa-times {
+                opacity: 0;
+                //ditaro di bawah
+                transform: translate(-50%, 50%);
+            }
+        }
+
+
+        .fa-bars::before, .fa-times::before {
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+}
