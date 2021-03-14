@@ -63,7 +63,7 @@
     <div class="forecast">
         <h3>forecast</h3>
         <h4>7 day weather report</h4>
-        <ul>
+        <ul class="list-forecast">
             <li>
                 <span class="date">MAR 12</span>
                 <img src="../images/thunder.png" alt="logo-forecast" class="forecast-logo">
@@ -100,6 +100,42 @@
                 <button class="show-detail">show detail</button>
             </li>
         </ul>
+        <div class="modal-details">
+            <div class="details">
+                <h5>Weather details</h5>
+                <img src="../images/thunder.png" alt="logo-weather" class="detail-icon">
+                <h1 class="temp">18</h1>
+                <h5 class="weather-description">Thunderstorm with rain</h5>
+
+                <ul>
+                    <li>
+                        <p class="value app-temp">18</p>
+                        <p class="keterangan">Apparent temperature</p>
+                    </li>
+                    <li>
+                        <p class="value visibility">6</p>
+                        <p class="keterangan">Visibility</p>
+                    </li>
+                    <li>
+                        <p class="value pressure">1009</p>
+                        <p class="keterangan">Air Quality</p>
+                    </li>
+                    <li>
+                        <p class="value uv">Very weak</p>
+                        <p class="keterangan">UV</p>
+                    </li>
+                    <li>
+                        <p class="value humidity">78%</p>
+                        <p class="keterangan">Humidity</p>
+                    </li>
+                    <li>
+                        <p class="value wind-speed">15 km/h</p>
+                        <p class="keterangan">Wind speed</p>
+                    </li>
+                </ul>
+                <button class="btn-close">close</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

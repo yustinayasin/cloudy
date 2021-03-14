@@ -70,6 +70,22 @@ function getForecast(lat, long) {
             })
 }
 
+function showModalDetail(response) {
+    console.log(response);
+    $('.modal-details > .details > .detail-icon').attr('src', `../icons/${response["weather"].icon}.png`);
+    $('.modal-details > .details > .city').html(`${response.city_name}`);
+    $('.modal-details > .details > .temp').html(`${response.temp}`);
+    $('.modal-details > .details > .weather-description').html(`${response["weather"].description}`);
+
+    $('.modal-details > .details > .app-temp').html(`${response.app_temp}`);
+    $('.modal-details > .details > .visibility').html(`${response.vis}`);
+    $('.modal-details > .details > .pressure').html(`${response.aqi}`);
+    $('.modal-details > .details > .uv').html(`${response.uv}`);
+    $('.modal-details > .details > .humidity').html(`${response.rh}`);
+    $('.modal-details > .details > .wind-speed').html(`${response.wind_spd}`);
+
+}
+
 function showForecast(respons) {
     const dates = Array.from(document.querySelectorAll('.date'));
     const forecast_icon = Array.from(document.querySelectorAll('.forecast-logo'));
@@ -87,5 +103,18 @@ function showForecast(respons) {
         icon.setAttribute('src', `../icons/${respons[index]["weather"].icon}.png`);
     });
 
-    //console.log(forecast_icon);
+    btnDetails.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            showModalDetail(respons[index]);
+            $('.modal-details').toggleClass('active');
+            document.body.style.position = 'fixed';
+        });
+
+        $('.modal-details > .details > .btn-close').click(() => {
+            $('.modal-details').removeClass('active');
+            document.body.style.position = 'static';
+        })
+    });
+
+    //console.log();
 }
