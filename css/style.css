@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 *,
 ::after,
 ::before {
@@ -12,7 +15,7 @@
 }
 
 body {
-  background-color: #8BBBD9;
+  background-color: #8bbbd9;
   padding: 50px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,6 +31,14 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  position: relative;
+}
+
+@media (min-width: 1025px) {
+  body {
+    padding: 30px 80px;
+  }
 }
 
 nav {
@@ -71,6 +82,8 @@ nav .logo img {
 
 nav .logo span {
   font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
 }
 
 nav .btn {
@@ -80,7 +93,7 @@ nav .btn {
   cursor: pointer;
   outline: none;
   border: none;
-  background-color: #8BBBD9;
+  background-color: #8bbbd9;
   -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-box-shadow: 0px -6px 10px #caeafd, 0px 4px 15px rgba(0, 0, 0, 0.2);
@@ -137,9 +150,35 @@ nav .btn .fas.fa-times {
           transform: translate(-50%, 50%);
 }
 
-nav .btn .fa-bars::before, nav .btn .fa-times::before {
+nav .btn .fa-bars::before,
+nav .btn .fa-times::before {
   font-size: 1.5rem;
   color: white;
+}
+
+@media (min-width: 1025px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  nav .logo span {
+    font-size: 3rem;
+  }
 }
 
 .weather {
@@ -164,33 +203,32 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
           flex-direction: column;
 }
 
-.weather .main-icon {
+.weather h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.weather .description-container .main-icon {
   width: 200px;
   height: 200px;
   margin: 30px 0;
 }
 
-.weather h3 {
-  font-size: 1.2rem;
-  text-decoration: underline;
-  text-transform: uppercase;
+.weather .description-container .description {
   text-align: center;
 }
 
-.weather .description {
-  text-align: center;
-}
-
-.weather .description h4 {
+.weather .description-container .description h4 {
   font-size: 1.1rem;
 }
 
-.weather .description h1 {
+.weather .description-container .description h1 {
   font-size: 3rem;
   margin: 20px 0;
 }
 
-.weather .description h5 {
+.weather .description-container .description h5 {
   font-size: 0.9rem;
 }
 
@@ -208,7 +246,7 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   list-style: none;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'temperature visibilit' 'pressure uv' 'humidity wind';
+      grid-template-areas: "temperature visibilit" "pressure uv" "humidity wind";
   -ms-grid-columns: auto;
       grid-template-columns: auto;
   -ms-grid-rows: auto;
@@ -259,6 +297,58 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   font-size: 0.9rem;
 }
 
+@media (min-width: 1025px) {
+  .weather {
+    width: 700px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1.2fr 1fr;
+        grid-template-columns: 1.2fr 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "title title" "description details";
+    padding: 50px;
+  }
+  .weather h3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: title;
+    margin-bottom: 30px;
+  }
+  .weather .description-container {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: description;
+    margin-right: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .weather .description-container .main-icon {
+    margin: 0;
+  }
+  .weather .description-container .description {
+    margin-top: 15px;
+  }
+  .weather .details {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: details;
+    margin: 0;
+  }
+}
+
 .forecast {
   width: 300px;
   margin: 50px 0 100px 0;
@@ -283,7 +373,6 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
 
 .forecast h3 {
   font-size: 1.2rem;
-  text-decoration: underline;
   text-transform: uppercase;
   text-align: center;
 }
@@ -304,7 +393,7 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   margin: 40px 0;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'date icon celcius button';
+      grid-template-areas: "date icon celcius button";
   gap: 0 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -330,7 +419,7 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   border: none;
   color: white;
   font-size: 0.9rem;
-  background-color: #8BBBD9;
+  background-color: #8bbbd9;
   -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-box-shadow: 0px -6px 10px #caeafd, 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -367,10 +456,23 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 20px 30px 0 30px;
   opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .forecast .modal-details .details {
-  background-color: #8BBBD9;
+  background-color: #8bbbd9;
   border-radius: 20px;
   padding: 40px 40px;
   display: -webkit-box;
@@ -407,7 +509,7 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
 .forecast .modal-details .details ul li {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'value keterangan';
+      grid-template-areas: "value keterangan";
   text-align: left;
   gap: 20px;
   -ms-grid-columns: 1fr 2fr;
@@ -425,7 +527,7 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
   border: none;
   color: white;
   font-size: 0.9rem;
-  background-color: #8BBBD9;
+  background-color: #8bbbd9;
   -webkit-transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-box-shadow: 0px -6px 10px #caeafd, 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -455,5 +557,34 @@ nav .btn .fa-bars::before, nav .btn .fa-times::before {
 
 .forecast .modal-details.active {
   opacity: 1;
+}
+
+@media (min-width: 1025px) {
+  .forecast {
+    width: 700px;
+    padding: 50px;
+  }
+  .forecast h4 {
+    font-weight: 600;
+  }
+  .forecast .list-forecast {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .forecast .modal-details .details {
+    width: 500px;
+    height: 600px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

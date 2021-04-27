@@ -40,7 +40,7 @@ function getCurrentWeather(lat, long) {
 }
 
 function showCurrentWeather(response) {
-    $('.main-icon').attr('src', `../icons/${response[0]["weather"].icon}.png`);
+    $('.main-icon').attr('src', `icons/${response[0]["weather"].icon}.png`);
     $('.city').html(`${response[0].city_name}`);
     $('.temp').html(`${response[0].temp}`);
     $('.weather-description').html(`${response[0]["weather"].description}`);
@@ -71,8 +71,8 @@ function getForecast(lat, long) {
 }
 
 function showModalDetail(response) {
-    console.log(response);
-    $('.modal-details > .details > .detail-icon').attr('src', `../icons/${response["weather"].icon}.png`);
+    //console.log(response);
+    $('.modal-details > .details > .detail-icon').attr('src', `icons/${response["weather"].icon}.png`);
     $('.modal-details > .details > .city').html(`${response.city_name}`);
     $('.modal-details > .details > .temp').html(`${response.temp}`);
     $('.modal-details > .details > .weather-description').html(`${response["weather"].description}`);
@@ -100,19 +100,19 @@ function showForecast(respons) {
     });
 
     forecast_icon.forEach((icon, index) => {
-        icon.setAttribute('src', `../icons/${respons[index]["weather"].icon}.png`);
+        icon.setAttribute('src', `icons/${respons[index]["weather"].icon}.png`);
     });
 
     btnDetails.forEach((btn, index) => {
         btn.addEventListener('click', () => {
             showModalDetail(respons[index]);
             $('.modal-details').toggleClass('active');
-            document.body.style.position = 'fixed';
+            //document.body.style.position = 'fixed';
         });
 
         $('.modal-details > .details > .btn-close').click(() => {
             $('.modal-details').removeClass('active');
-            document.body.style.position = 'static';
+           // document.body.style.position = 'static';
         })
     });
 
